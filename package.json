@@ -1,0 +1,10 @@
+{
+  "name": "privatelinkapprouter",
+  "dependencies": {
+    "@sap/approuter": "^14.1.2"
+  },
+  "engines": {
+    "node": "^18.15",
+    "npm": "^9.7"
+  }
+}

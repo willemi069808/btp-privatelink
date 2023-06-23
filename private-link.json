@@ -1,0 +1,6 @@
+{
+    "resourceId": "/subscriptions/...xyz...",
+    "subResource": "blob",
+    "requestMessage": "Created via MTA deployment",
+    "cosmosDb": {}
+}

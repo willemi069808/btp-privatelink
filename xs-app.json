@@ -1,0 +1,12 @@
+{
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "^/PrivateLink_AzureBlob/(.*)$",
+      "target": "/$1",
+      "destination": "PrivateLink_AzureBlob",
+      "authenticationType": "xsuaa",
+      "csrfProtection": true
+    }
+  ]
+}

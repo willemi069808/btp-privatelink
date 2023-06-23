@@ -1,0 +1,40 @@
+---
+_schema-version: '3.1'
+ID: approuter
+version: 1.0.0
+description: "approuter"
+
+modules:
+  - name: PrivateLinkApprouter
+    type: approuter.nodejs
+    path: /
+    requires:
+    - name: PrivateLink-xsuaa
+    - name: PrivateLink-pls
+    - name: PrivateLink-ds
+    parameters:
+      buildpack: nodejs_buildpack
+      disk-quota: 256M
+      memory: 256M
+      command: node node_modules/@sap/approuter/approuter.js
+
+resources:
+- name: PrivateLink-xsuaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: PrivateLink-xsuaa
+    service-plan: application
+- name: PrivateLink-pls
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./private-link.json
+    service: privatelink
+    service-name: PrivateLink-pls
+    service-plan: standard
+- name: PrivateLink-ds
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: destination
+    service-plan: lite
